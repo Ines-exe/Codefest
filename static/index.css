@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+:root{
+    --primary-color: #91bd93;
+    --primary-color-dark: #78967a;
+    --text-dark: #000000;
+    --text-light: #4d5c4f;
+    --white: #ffffff;
+    --max-width: 1200px;
+    --header-font: "Open Sans", sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: flex;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+nav { 
+    position:fixed;
+    isolation: isolate;
+    width: 100%;
+    z-index: 9;
+}
+
+.nav__header {
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-color);
+}
+
+.nav__logo a{
+    font-size: 1.75;
+    font-weight: 400;
+    font-family: var(--header-font);
+    color: var(--white);
+}
+
+.nav__menu__btn {
+    font-size: 1.5rem;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.nav__links {
+    position: absolute;
+    top:64px;
+}
