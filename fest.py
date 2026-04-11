@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import os
 
 app = Flask(__name__)
@@ -27,6 +27,9 @@ def login():
 def signup():
         return render_template("signup.html")
 
+@app.route("/index")
+def index():
+        return render_template("index.html")
 
 
 if __name__=="__main__":
