@@ -1,0 +1,49 @@
+body {
+  font-size: 30px;
+  background-color: white;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+.welcome-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+}
+
+.login-button {
+  text-decoration: none !important;
+  padding: 12px 32px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #CAE3A6;
+  color: #3b6e12;
+  font-weight: 500;
+}
+
+.login-button:hover {
+  background-color: #B5CC95;
+}
+
+.login-button.guest {
+  text-decoration: none !important;
+  background-color: #f0f0f0;
+  color: black;
+}
+
+.login-button.guest:hover { 
+  background-color: #E8EFDF;
+  color: black;
+}
