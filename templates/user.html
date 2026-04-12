@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Find Events Near You</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -11,9 +13,6 @@
       background: #dff0b3;
       font-family: system-ui, sans-serif;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       padding: 2rem;
     }
 
@@ -162,5 +161,8 @@
       <button type="submit">Search Events</button>
     </form>
   </div>
+    <div id="map" style="height: 400px; margin-top: 20px;"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/static/maps.js"></script>
 </body>
 </html>

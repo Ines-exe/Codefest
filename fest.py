@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from dotenv import load_dotenv
 import os
 import csv
-from groq import Groq
+# no groqfrom groq import Groq
 
 app = Flask(__name__)
 
@@ -26,6 +26,7 @@ def donate():
 
     return render_template("donate.html",succes = True)
 
+#CHANGE THIS BACK TO USER PLS PLS PLS
 @app.route("/user", methods = ["GET","POST"])
 def user():
         import pandas as pd
@@ -44,7 +45,6 @@ def user():
             max_distance = request.form.get("max_distance")
 
             user_data = {
-                "max_distance" : request.form.get("max_distance"),
                 "date": request.form.get("date"),
                 "time": request.form.get("time"),
                 "user_category": request.form.get("user_category")
@@ -63,7 +63,7 @@ def user():
             #looping through both data files
             for dataFile in [data,donations]:
                 #looping in one file
-                for index, row in dataFile.itertuples():
+                for row in dataFile.itertuples():
 
                     event_address = row.address
                     event_location = geolocator.geocode(event_address)
@@ -73,14 +73,35 @@ def user():
 
                         #comparing the distance between the two
                         distance = geodesic(event_coordinates,user_coordinates).miles
-                        if distance <= float(user_data["max_distance"]):
-                             events_in_range.append(row)
+                        #adding the event to the list of events in range if it is in range
+                        if distance <= float(max_distance):
 
-            #intializing gemini
+                            #turning the row into a dictionary
+                            row_dict = row._asdict()
+
+                            #adding the coordinates to the dictionary
+                            row_dict["lat"] = event_coordinates[0]
+                            row_dict["long"] = event_coordinates[1]
+
+                            #appending the dictionary to the events list
+                            events_in_range.append(row_dict)
+
+            #intializing gemini and sending the data to it
             googleAi.configure(api_key = os.getenv("GEMINI_API_KEY"))
+            gemini = googleAi.GenerativeModel("gemini-1.5-flash")
 
-            #sending the data to Gemini
+            message = f""""Based on the user's needs: {user_data} and the resource sites within the user's distance: {events_in_range} recommend the sites that fit them the best and why.
+            Your recommendation should only be returned as a JSON array that looks like this format, no otehr format:
+            [
+                {{"site_name":".....", "address":"....", "reason":"....", "lat":"....","long":"...."}},
+                {{"site_name":".....", "address":"....", "reason":"....", "lat":"....","long":"...."}}
+            ]   
+            """
 
+            response = gemini.generate_content(message)
+            recommendations = response.text
+
+            return jsonify({"recommendations":recommendations})
 
         return render_template("user.html")
 
@@ -88,13 +109,17 @@ def user():
 def login():
         return render_template("login.html")
 
-@app.route("/signup")
-def signup():
-        return render_template("signup.html")
-
 @app.route("/index")
 def main():
         return render_template("index.html")
+
+@app.route("/signupDonator")
+def signupDonator():
+        return render_template("signupDonator.html")
+
+@app.route("/signupUser")
+def signupUser():
+        return render_template("signupUser.html")
 
 
 
