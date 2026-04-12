@@ -7,6 +7,11 @@
     <title>Welcome!</title>
 </head>
 <body>
+    <div class ="buttons">
+            <button onclick="window.location.href='/login'">Login</button>
+            <button onclick="window.location.href='/signupDonator'">Sign up as donator</button>
+            <button onclick="window.location.href='/signupUser'">Sign up as user</button>
+    </div>
     <div class="top-section">
         <div class="left-content">
             <h1>A Place for Community</h1>
@@ -19,17 +24,11 @@
     </div>
 
     <div class="bottom-part">
-        <div class ="buttons">
-            <button onclick="window.location.href='/login'">Login</button>
-            <button onclick="window.location.href='/signupDonator'">Sign up as donator</button>
-            <button onclick="window.location.href='/signupUser'">Sign up as user</button>
+        <div class="aboutus-text">
+        <h3>About Us</h3>
+        <p>This website was made for people to easily navigate in order to either locate the closest most cost effective food option near them or donate food for those who need it. Anyone can check out the website depending on their needs at the moment. You can put your own preferred distance from your location, what type of food place you are looking for, as well as your budget ranging from free to inexpensive.</p>
         </div>
         <img src="{{ url_for('static', filename='freefoodtruck.png')}}" alt="food truck">
     </div>
-    <nav>
-        <ul class="nav__links" id="nav-links">
-            <li><a href="#">About Us</a></li>
-        </ul>
-    </nav>
 </body>
 </html>
