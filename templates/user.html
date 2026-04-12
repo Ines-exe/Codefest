@@ -120,7 +120,7 @@
     <div class="card">
     <h1>Find Events Near You</h1>
 
-    <form action="/search" method="POST">
+    <form>
 
       <div class="field">
         <label for="max_distance">Max Distance</label>
@@ -155,7 +155,8 @@
         </select>
       </div>
 
-      <button type="submit">Search Events</button>
+      <button type="button" onclick="findSite()">Search Events</button>
+
     </form>
   </div>
     <div id="map" style="height: 400px; margin-top: 20px;"></div>

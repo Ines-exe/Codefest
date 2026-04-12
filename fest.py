@@ -26,7 +26,6 @@ def donate():
 
     return render_template("donate.html",succes = True)
 
-#CHANGE THIS BACK TO USER PLS PLS PLS
 @app.route("/user", methods = ["GET","POST"])
 def user():
         import pandas as pd
@@ -36,26 +35,33 @@ def user():
 
 
         if request.method == "POST":
+            print("POST received!")
+            print(request.json)
             #getting the coordinates from the user's location from the .js
             lat = request.json.get("lat")
             long = request.json.get("long")
             user_coordinates = (lat, long)
+            date = request.json.get("date")
+            time = request.json.get("time")
+            user_category = request.json.get("user_category")
+
 
             #getting the data from the user frm the .html and storing some in a dictionary
-            max_distance = request.form.get("max_distance")
+            max_distance = request.json.get("max_distance")
 
             user_data = {
-                "date": request.form.get("date"),
-                "time": request.form.get("time"),
-                "user_category": request.form.get("user_category")
+                "date": date,
+                "time": time,
+                "user_category": user_category
             }
 
             #making the pandas to read the csv files
-            donations = pd.read_csv("donations.csv")
-            data = pd.read_csv("free_meal_sites.csv")
+            donations = pd.read_csv("donations.csv").head(20)
+            data = pd.read_csv("free_meal_sites.csv").head(20)
+            print("CSVs loaded")
             
             #intializing nominatim
-            geolocator = Nominatim(user_agent="my_service_locator")
+            geolocator = Nominatim(user_agent="my_service_locator", timeout= 5)
             
             #filtering the data csv to just locations in the users preferred distance
             events_in_range = []
@@ -64,9 +70,11 @@ def user():
             for dataFile in [data,donations]:
                 #looping in one file
                 for row in dataFile.itertuples():
-
                     event_address = row.address
-                    event_location = geolocator.geocode(event_address)
+                    try:
+                        event_location = geolocator.geocode(event_address)
+                    except:
+                         continue
 
                     if event_location:
                         event_coordinates = (event_location.latitude, event_location.longitude)
