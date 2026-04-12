@@ -6,9 +6,10 @@
 
 </head>
 <body>
-    <div class="homeButton">
-    <button onclick="window.location.href='/index'">Return to Home</button>
-    </div>
+    <nav class="navbar">
+        <img src="{{url_for('static', filename='rbgfoodAvailabilityLogo.png')}}" alt="logo" class="logo">
+        <button onclick="window.location.href='/index'">Return to Home</button>
+    </nav>
     <h1>Enter the Follow Information on Your Event:</h1>
     {%if success%}
     <h2> Your donation was submitted!</h2>
