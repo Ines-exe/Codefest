@@ -70,7 +70,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 100px 50px 50px 50px;
+    padding: 100px 0 50px 50px;
     min-height: 100vh;
 }
 
@@ -95,6 +95,8 @@ nav {
     width: 45%;
     opacity: 1;
     transition: opacity 0.3s;
+    margin-right: 0;
+    padding-right: 0;
 }
 
 .bottom-part {
