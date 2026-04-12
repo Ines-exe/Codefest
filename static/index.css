@@ -70,8 +70,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 100px 0 50px 50px;
-    min-height: 100vh;
+    padding: 20px 0 20px 50px;
+    min-height: 60vh;
 }
 
 .left-content {
@@ -93,7 +93,7 @@ nav {
 }
 
 .right-side {
-    width: 45%;
+    width: 35%;
     opacity: 1;
     transition: opacity 0.3s;
     margin-right: 0;
@@ -130,4 +130,53 @@ nav {
 .buttons button:hover {
     background-color: var(--primary-color);
     color: var(--text-dark);
+}
+
+.bottom-part {
+    position: relative;
+    margin-top: 80px;
+}
+
+.bottom-part img {
+    margin-top: 80px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 20px;
+}
+
+.buttons button {
+    background-color: var(--primary-color-dark);
+    color: var(--white);
+    padding: 16px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: var(--header-font);
+}
+
+.buttons button:hover {
+    background-color: var(--primary-color);
+    color: var(--text-dark);
+}
+
+.aboutus-text {
+    text-align: center;
+    padding: 40px 80px;
+    font-family: var(--header-font);
+    background-color: #F8FFE6;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    width: 800px;
+    margin: 60px auto;
+}
+
+.aboutus-text h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--text-light);
 }
