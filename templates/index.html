@@ -9,8 +9,8 @@
 <body>
     <div class="top-section">
         <div class="left-content">
-            <h1>Title</h1>
-            <p>Description</p>
+            <h1>A Place for Community</h1>
+            <p>Find the most cost effective food option near you!</p>
         </div>
     
         <div class="right-side">
@@ -20,9 +20,9 @@
 
     <div class="bottom-part">
         <div class ="buttons">
-            <button onclick="window.location.href='templates/login.html'">Login</button>
-            <button onclick="window.location.href='templates/donate.html'">Sign up as donator</button>
-            <button onclick="window.location.href='templates/user.html'">Sign up as user</button>
+            <button onclick="window.location.href='/login'">Login</button>
+            <button onclick="window.location.href='/signupDonator'">Sign up as donator</button>
+            <button onclick="window.location.href='/signupUser'">Sign up as user</button>
         </div>
         <img src="{{ url_for('static', filename='freefoodtruck.png')}}" alt="food truck">
     </div>

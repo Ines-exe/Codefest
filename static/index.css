@@ -47,7 +47,7 @@ nav {
     background-color: var(--primary-color);
 }
 
-.nav__logo a{
+.nav__logo a {
     font-size: 28px;
     font-weight: 400;
     font-family: var(--header-font);
@@ -87,6 +87,7 @@ nav {
 
 .left-content p {
     font-size: 16px;
+    font-family: var(--header-font);
     color: var(--text-light);
     transition: opacity 0.3s;
 }
