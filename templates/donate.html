@@ -6,7 +6,13 @@
 
 </head>
 <body>
+    <a href="index.html" class="homeButton">Return to Home</a>
     <h1>Enter the Follow Information on Your Event:</h1>
+    {%if success%}
+    <h2> Your donation was submitted!</h2>
+    <button onclick="window.location.href='/donate'">Add Another</button>
+    <button onclick="window.location.href='/index'">Go Home</button>"
+    {%else%}
     <form action="{{ url_for('donate') }}" method ="post">
         <div>
             <label for="Address">Address:</label>
@@ -25,7 +31,7 @@
             <input type="text" id="phoneNumber" name ="phone_number">
         </div>
         <div>
-            <label for="Category">Address</label>
+            <label for="Category">Category</label>
             <input type="text" id="Category" name ="category">
         </div>
         <div>
@@ -52,5 +58,6 @@
         <button type ="submit">Enter</button>
         
     </form>
+    {%endif%}
 </body>
 </html>

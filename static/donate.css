@@ -61,10 +61,26 @@ button {
     border-radius: 6px;
     font-size: 15px;
     font-weight: 500;
-    cursor: pointer;
+    text-decoration: none;
 }
 
 button:hover {
+    background-color: #c5dc8a;
+    color: #3a5200;
+}
+
+.homeButton {
+    padding: 15px 20px;
+    background-color: #9ecb3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.homeButton:hover {
     background-color: #c5dc8a;
     color: #3a5200;
 }

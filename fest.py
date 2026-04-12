@@ -24,9 +24,7 @@ def donate():
               writer = csv.writer(file)
               writer.writerow([site_name, address, phone_number,category, days,open_time, close_time])
 
-        return "Your request has been made."
-
-    return render_template("donate.html")
+    return render_template("donate.html",succes = True)
 
 @app.route("/user", methods = ["GET","POST"])
 def user():

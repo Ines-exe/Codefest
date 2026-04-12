@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Find Events Near You</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #dff0b3;
+      font-family: system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card {
+      background: #edf7c8;
+      border: 1px solid #547500;
+      border-radius: 12px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      color: #334700;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.1rem;
+    }
+
+    label {
+      font-size: 0.85rem;
+      color: #547500;
+      font-weight: 500;
+    }
+
+    input, select {
+      background: #fff;
+      border: 1px solid #c8e87a;
+      border-radius: 8px;
+      color: #334700;
+      font-size: 0.95rem;
+      padding: 0.6rem 0.85rem;
+      width: 100%;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: #547500;
+      box-shadow: 0 0 0 3px rgba(84,117,0,0.12);
+    }
+
+    select option {
+      background: #fff;
+      color: #334700;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    input[type="range"] {
+      flex: 1;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      accent-color: #547500;
+      cursor: pointer;
+    }
+
+    input[type="range"]:focus { box-shadow: none; }
+
+    .dist-label {
+      font-size: 0.85rem;
+      color: #547500;
+      min-width: 45px;
+      text-align: right;
+      font-weight: 600;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background: #547500;
+      color: #edf7c8;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.15s;
+    }
+
+    button:hover { background: #334700; }
+  </style>
+</head>
+<body>
+
+    <div class="card">
+    <h1>Find Events Near You</h1>
+
+    <form action="/search" method="POST">
+
+      <div class="field">
+        <label for="max_distance">Max Distance</label>
+        <div class="slider-row">
+          <input type="range" id="max_distance" name="max_distance"
+            min="1" max="100" value="25"
+            oninput="document.getElementById('dist-val').textContent = this.value + ' mi'" />
+          <span class="dist-label" id="dist-val">25 mi</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="date">Date</label>
+          <input type="date" id="date" name="date" required />
+        </div>
+        <div class="field">
+          <label for="time">Time</label>
+          <input type="time" id="time" name="time" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="user_category">Category</label>
+        <select id="user_category" name="user_category" required>
+          <option value="" disabled selected>Select a category...</option>
+          <option value="music">Music</option>
+          <option value="sports">Sports</option>
+          <option value="arts">Arts & Culture</option>
+          <option value="food">Food & Drink</option>
+          <option value="outdoor">Outdoor & Adventure</option>
+          <option value="tech">Tech & Innovation</option>
+          <option value="community">Community</option>
+          <option value="wellness">Wellness</option>
+        </select>
+      </div>
+
+      <button type="submit">Search Events</button>
+    </form>
+  </div>
+</body>
+</html>
