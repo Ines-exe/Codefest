@@ -3,7 +3,6 @@
 body {
     background-color: #d6e8b0;
     font-family: "DM Sans", sans-serif;
-    padding: 2rem;
 }
 
 h1 {
@@ -70,8 +69,8 @@ button:hover {
 }
 
 .homeButton {
-    padding: 0px 10px;
     display: inline-block; 
+    padding-bottom: 15px;
     background-color: #9ecb3c;
     color: white;
     font-weight: 500;
