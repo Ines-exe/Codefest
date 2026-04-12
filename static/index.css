@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 :root{
-    --primary-color: #91bd93;
-    --primary-color-dark: #78967a;
+    --primary-color: #EBFFB8;
+    --primary-color-dark: #75A300;
     --text-dark: #000000;
-    --text-light: #4d5c4f;
+    --text-light: #547500;
     --white: #ffffff;
     --max-width: 1200px;
-    --header-font: "Open Sans", sans-serif;
+    --header-font: "DM Sans", sans-serif;
 }
 
 * {
@@ -16,7 +18,7 @@
 }
 
 img {
-    display: flex;
+    display: block;
     width: 100%;
 }
 
@@ -37,7 +39,7 @@ nav {
 }
 
 .nav__header {
-    padding: 1rem;
+    padding: 16px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -46,14 +48,14 @@ nav {
 }
 
 .nav__logo a{
-    font-size: 1.75;
+    font-size: 28px;
     font-weight: 400;
     font-family: var(--header-font);
     color: var(--white);
 }
 
 .nav__menu__btn {
-    font-size: 1.5rem;
+    font-size: 24px;
     color: var(--white);
     cursor: pointer;
 }
@@ -61,4 +63,68 @@ nav {
 .nav__links {
     position: absolute;
     top:64px;
+}
+
+
+.top-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 50px 50px 50px;
+    min-height: 100vh;
+}
+
+.left-content {
+    width: 50%;
+}
+
+.left-content h1 {
+    font-size: 40px;
+    font-family: var(--header-font);
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.left-content p {
+    font-size: 16px;
+    color: var(--text-light);
+    transition: opacity 0.3s;
+}
+
+.right-side {
+    width: 45%;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.bottom-part {
+    position: relative;
+    margin-top: 80px;
+}
+
+.bottom-part img {
+    margin-top: 80px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 20px;
+}
+
+.buttons button {
+    background-color: var(--primary-color-dark);
+    color: var(--white);
+    padding: 16px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: var(--header-font);
+}
+
+.buttons button:hover {
+    background-color: var(--primary-color);
+    color: var(--text-dark);
 }
