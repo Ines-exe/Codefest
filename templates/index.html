@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"> <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"> 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <title>Welcome!</title>
 </head>
 <body>
-    <nav>
-        <div class="nav__header">
-            <div class="nav__logo">
-                <a href="#">Food<span>Availability</span></a>
-            </div>
-            <div class="nav__menu__btn" id="menu-btn">
-                <span></span>
-            </div>
+    <div class="top-section">
+        <div class="left-content">
+            <h1>Title</h1>
+            <p>Description</p>
         </div>
+    
+        <div class="right-side">
+            <img src="{{ url_for('static', filename='foodsupport.png')}}" alt="food support">
+        </div>
+    </div>
 
+    <div class="bottom-part">
+        <div class ="buttons">
+            <button onclick="window.location.href='login.html'">Login</button>
+            <button onclick="window.location.href='donate.html'">Sign up as donator</button>
+            <button onclick="window.location.href='user.html'">Sign up as user</button>
+        </div>
+        <img src="{{ url_for('static', filename='freefoodtruck.png')}}" alt="food truck">
+    </div>
+    <nav>
         <ul class="nav__links" id="nav-links">
             <li><a href="#">About Us</a></li>
         </ul>
-        <div class="nav__btns">
-            <button class="btn sign__up">Sign Up</button>
-            <button class="btn log__in">Log In</button>
-        </div>
     </nav>
 </body>
 </html>
