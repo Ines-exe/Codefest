@@ -154,10 +154,10 @@ def login():
         if email in FAKEUSERS and FAKEUSERS[email][0] == password:
             role = FAKEUSERS[email][1]
             if role == "user":
-                 return render_template("user.html")
+                 return redirect(url_for("user.html"))
             
             elif role == "donator":
-                 return render_template("donate.html")
+                 return redirect(url_for("donate.html"))
                 
         else: return "FAIL"
     
@@ -167,9 +167,17 @@ def login():
 def main():
         return render_template("index.html")
 
-@app.route("/signupDonator")
+@app.route("/signupDonator", methods = ["GET","POST"])
 def signupDonator():
-        return render_template("signupDonator.html")
+    if request.method == "POST":
+        email = request.form.get("email")
+        password = request.form.get("password")
+        username = request.form.get("username")
+        
+        #adding to the database
+        FAKEUSERS[email] = [password, "donator"]
+
+    return render_template("signupDonator.html")
 
 @app.route("/signupUser")
 def signupUser():
